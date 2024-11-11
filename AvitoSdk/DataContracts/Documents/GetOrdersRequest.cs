@@ -13,9 +13,6 @@ namespace AvitoSdk.DataContracts.Documents
         [DataMember(Name = "page")]
         public long? Page { get; set; }
 
-        [DataMember(Name = "statuses")]
-        public string[] Statuses { get; set; }
-
         [DataMember(Name = "limit ")]
         public long? limit { get; set; }
     }

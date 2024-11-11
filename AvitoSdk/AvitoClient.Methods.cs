@@ -15,8 +15,8 @@ namespace AvitoSdk
         /// Получить список заказов
         /// https://developers.avito.ru/api-catalog/order-management/documentation#info/poluchenie_zakazov
         /// </summary>
-        public GetOrdersResponse GetOrders(DataContracts.Documents.GetOrdersRequest request) =>
-            Get<GetOrdersResponse>($"/order-management/1/orders", r => AddQueryString(request, r));
+        public GetOrdersResponse GetOrders(DataContracts.Documents.GetOrdersRequest request, string[] statuses) =>
+            Get<GetOrdersResponse>($"/order-management/1/orders", r => AddQueryString(request, r, statuses));
 
         public void InitRequest(IRestRequest initReq)
         {
@@ -24,20 +24,20 @@ namespace AvitoSdk
             initReq.AddHeader("Accept", "application/json");
         }
 
-        public void AddQueryString(DataContracts.Documents.GetOrdersRequest req, IRestRequest initReq)
+        public void AddQueryString(DataContracts.Documents.GetOrdersRequest req, IRestRequest initReq, string[] statuses)
         {
             InitRequest(initReq);
 
             initReq.AddQueryParameter("page", req.Page.ToString());
+            initReq.AddQueryString(req);
 
-            if (req.Statuses != null && req.Statuses.Any())
+            if (statuses != null && statuses.Any())
             {
-                foreach (var item in req.Statuses.Where(r => !string.IsNullOrWhiteSpace(r)))
+                foreach (var item in statuses.Where(r => !string.IsNullOrWhiteSpace(r)))
                 {
                     initReq.AddQueryParameter("statuses", item);
                 }
             }
-            ////initReq.AddQueryString(req);
         }
     }
 }

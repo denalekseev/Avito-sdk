@@ -14,6 +14,6 @@ namespace AvitoSdk.DataContracts.Documents.Orders
         public string FullName { get; set; }
 
         [DataMember(Name = "phoneNumber")]
-        public long PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

@@ -17,6 +17,6 @@ namespace AvitoSdk.DataContracts.Documents.Orders
         public string Type { get; set; }
 
         [DataMember(Name = "value")]
-        public int Value { get; set; }
+        public decimal Value { get; set; }
     }
 }

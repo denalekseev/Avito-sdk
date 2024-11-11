@@ -15,7 +15,7 @@ namespace AvitoSdk.Tests
         [Test, Ordered]
         public void GetStores()
         {
-            var regions = Client.GetOrders(new DataContracts.Documents.GetOrdersRequest());
+            var regions = Client.GetOrders(new DataContracts.Documents.GetOrdersRequest(), null);
             Assert.That(regions, Is.Not.Null);
             ////Assert.That(regions, Is.Not.Null);
             ////Assert.That(regions.Items.Count, Is.GreaterThan(0));

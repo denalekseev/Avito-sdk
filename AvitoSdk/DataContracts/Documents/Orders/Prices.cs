@@ -11,21 +11,21 @@ namespace AvitoSdk.DataContracts.Documents.Orders
     public class Prices
     {
         [DataMember(Name = "commission")]
-        public int Commission { get; set; }
+        public decimal Commission { get; set; }
 
         [DataMember(Name = "discountSum")]
-        public int DiscountSum { get; set; }
+        public decimal DiscountSum { get; set; }
 
         [DataMember(Name = "price")]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         [DataMember(Name = "total")]
-        public int Total { get; set; }
+        public decimal Total { get; set; }
 
         [DataMember(Name = "delivery")]
-        public int Delivery { get; set; }
+        public decimal Delivery { get; set; }
 
         [DataMember(Name = "discount")]
-        public int Discount { get; set; }
+        public decimal Discount { get; set; }
     }
 }
